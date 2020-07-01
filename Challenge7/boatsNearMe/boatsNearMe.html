@@ -1,0 +1,25 @@
+<!--
+  @File Name          : boatsNearMe.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 7/1/2020, 4:22:06 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    7/1/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+    <lightning-card class="slds-is-relative">
+       <!-- The template and lightning-spinner goes here -->
+        <template if:true={isLoading}>
+            <lightning-spinner 
+            variant="brand" alternative-text="Loading">
+            </lightning-spinner>
+        </template>
+       <!-- The lightning-map goes here -->
+       <lightning-map map-markers={mapMarkers}> </lightning-map>
+
+       <div slot="footer">Top 10 Only!</div>
+    </lightning-card>
+  </template>  
