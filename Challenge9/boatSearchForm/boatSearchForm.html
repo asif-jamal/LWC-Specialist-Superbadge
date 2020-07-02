@@ -1,0 +1,28 @@
+<!--
+  @File Name          : boatSearchForm.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 7/2/2020, 4:08:39 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/29/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+    <lightning-layout>
+      <lightning-layout-item class="slds-align-middle slds-align_absolute-center" >
+        <lightning-combobox class="slds-align-middle"
+            name=""
+            label=""
+            dropdown-alignment='left'
+            value={selectedBoatTypeId}
+            placeholder="All Type"
+            options={searchOptions}
+            onchange={handleSearchOptionChange}
+        > </lightning-combobox>
+      </lightning-layout-item>
+    </lightning-layout>
+  </template>
+  
+  

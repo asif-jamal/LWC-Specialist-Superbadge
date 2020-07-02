@@ -1,0 +1,47 @@
+<!--
+  @File Name          : boatSearch.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 7/2/2020, 5:33:39 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/29/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+    <lightning-layout multiple-rows>
+      <!-- Top -->
+      <lightning-layout-item size="12">
+        <lightning-card title="Find a Boat">
+          <!-- New Boat button goes here -->
+        <p style="position:absolute;top:1rem;left:1rem; padding-left: 800px;" >
+            <lightning-button label='New Boat' variant='neutral' onclick={createNewBoat} >
+            </lightning-button>  
+            
+        </p>
+        
+          
+          <p class="slds-var-p-horizontal_small slds-align_absolute-center">
+            <!-- boatSearchForm component goes here -->
+            <c-boat-search-form onsearch={searchBoats}> </c-boat-search-form>
+          </p>
+        </lightning-card>
+      </lightning-layout-item>
+      <!-- Bottom -->
+      <lightning-layout-item size="12" class="slds-p-top_small slds-is-relative">
+        <!-- Spinner goes here -->
+        
+          <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" variant="brand" ></lightning-spinner>
+               
+          </template>
+         
+        <!-- boatSearchResults goes here -->
+        <c-boat-search-results onloading={handleLoading} ondoneloading={handleDoneLoading}>
+        </c-boat-search-results>
+        <!-- onloading={handleLoading} ondoneloading={handleDoneLoading} -->
+      </lightning-layout-item>
+    </lightning-layout>
+</template>
+  

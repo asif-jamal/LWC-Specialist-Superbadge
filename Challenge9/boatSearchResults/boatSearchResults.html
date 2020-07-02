@@ -1,0 +1,41 @@
+<!--
+  @File Name          : boatSearchResults.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 7/2/2020, 10:19:55 AM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    7/2/2020   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+    <template if:true={boats}>
+        <lightning-tabset variant="scoped">
+            <lightning-tab label="Gallery">
+                <div class="slds-scrollable_y">
+                    <lightning-layout horizontal-align="center" multiple-rows>
+                        <template for:each={boats.data} for:item="boat">
+                            <lightning-layout-item key={boat.Id} padding="around-small" size="12" small-device-size="6"
+                            medium-device-size="4" large-device-size="3">
+                                <c-boat-tile boat={boat} selected-boat-id={selectedBoatId}
+                                    onboatselect={updateSelectedTile}></c-boat-tile>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Boat Editor">
+                <div class="slds-scrollable_y">
+                    <lightning-datatable key-field="Id" data={boats.data} show-row-number-column 
+                    columns={columns}
+                    hide-checkbox-column onsave={handleSave} draft-values={draftValues}>
+                    </lightning-datatable>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Boats Near Me">
+                <c-boats-near-me boat-type-id={boatTypeId}></c-boats-near-me>
+            </lightning-tab>
+        </lightning-tabset>
+    </template>
+</template>
